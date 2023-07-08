@@ -6,8 +6,7 @@ import './assets/styles/global.css'
 
 import { Navigation } from "./components/navigation"
 
-import ContextMenu from "./components/context-menu/ContextMenuRoot";
-
+import { ContextMenu } from "./components/context-menu";
 
 function App() {
 
@@ -43,9 +42,17 @@ function App() {
         heroSize="cover"
       />
 
-      <ContextMenu>
-        <div>Clock</div>
-      </ContextMenu>
+      <ContextMenu.Root>
+        <ContextMenu.Item
+          hasAction={false}
+          labelText="macumba"
+        />
+
+        <ContextMenu.Item
+          hasAction={false}
+          labelText="pao com arroz"
+        />
+      </ContextMenu.Root>
       
     </div>
 

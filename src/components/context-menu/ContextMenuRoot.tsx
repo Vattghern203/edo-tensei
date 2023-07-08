@@ -4,7 +4,7 @@ interface ContextMenuProps {
     children: ReactNode;
 }
 
-const ContextMenu: React.FC<ContextMenuProps> = ({ children }) => {
+const ContextMenuRoot: React.FC<ContextMenuProps> = ({ children }) => {
     const contextMenuRef = useRef<HTMLDivElement>(null);
     const shareMenuRef = useRef<HTMLUListElement>(null);
 
@@ -65,33 +65,19 @@ const ContextMenu: React.FC<ContextMenuProps> = ({ children }) => {
         top: `${position.y}px`,
         left: `${position.x}px`,
         visibility: isVisible ? 'visible' : 'hidden',
+        pointerEvents: isVisible ? 'all' : 'none',
+        backgroundColor: '#1f1f1f',
     };
 
     return (
         <div ref={contextMenuRef} className="wrapper" style={menuStyles}>
             <div className="content">
-                {children}
                 <ul ref={shareMenuRef} className="share-menu">
-                    <li className="item">
-                        <em className="uil uil-twitter-alt"></em>
-                        <span>Twitter</span>
-                    </li>
-                    <li className="item">
-                        <em className="uil uil-instagram-alt"></em>
-                        <span>Instagram</span>
-                    </li>
-                    <li className="item">
-                        <em className="uil uil-telegram-alt"></em>
-                        <span>Telegram</span>
-                    </li>
-                    <li className="item">
-                        <em className="uil uil-dribbble"></em>
-                        <span>Dribbble</span>
-                    </li>
+                    {children}
                 </ul>
             </div>
         </div>
     );
 };
 
-export default ContextMenu;
+export default ContextMenuRoot;
