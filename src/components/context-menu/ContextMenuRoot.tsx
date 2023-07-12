@@ -1,4 +1,4 @@
-import { ReactNode, useState, useEffect, useRef, useContext } from 'react';
+import { useState, useEffect, useRef, useContext } from 'react';
 
 import { contextPosition } from './PositionContext';
 

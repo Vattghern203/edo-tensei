@@ -3,6 +3,7 @@ import { Hero, ContextMenu, Header } from "./components"
 import './assets/styles/global.css'
 
 import { Navigation } from "./components/navigation"
+import Form from "./components/form"
 
 function App() {
 
@@ -47,11 +48,11 @@ function App() {
       />
 
       <ContextMenu.Root>
+
         <ContextMenu.Item
         
           hasAction={false}
           labelText="farra"
-
         />
 
         <ContextMenu.Item
@@ -79,6 +80,12 @@ function App() {
         </ContextMenu.Expand>
 
       </ContextMenu.Root>
+
+      <Form.Input
+        inputType="textarea"
+        placeholder="secsu gratis"
+        required={false}
+      />
       
     </div>
 
