@@ -2,7 +2,6 @@ interface ContextMenuItemProps {
     hasAction: boolean,
     onClickAction?: () => void,
     labelText: string,
-
 }
 
 export default function ContextMenuItem({hasAction, onClickAction, labelText}:ContextMenuItemProps) {

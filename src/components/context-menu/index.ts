@@ -1,10 +1,13 @@
 import ContextIcon from "./ContextIcon";
 import ContextMenuItem from "./ContextMenuItem";
+import ContextMenuExpand from "./ContextMenuItemExpand";
 import ContextMenuRoot from "./ContextMenuRoot";
 
-export const ContextMenu = {
+const ContextMenu = {
     Root: ContextMenuRoot,
     Item: ContextMenuItem,
     Icon: ContextIcon,
-    //Expand: ConteMenuItemExpand
+    Expand: ContextMenuExpand
 }
+
+export default ContextMenu

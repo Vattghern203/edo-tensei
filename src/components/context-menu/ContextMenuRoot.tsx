@@ -1,18 +1,25 @@
-import { ReactNode, useState, useEffect, useRef } from 'react';
+import { ReactNode, useState, useEffect, useRef, useContext } from 'react';
+
+import { contextPosition } from './PositionContext';
 
 interface ContextMenuProps {
-    children: ReactNode;
+    children: Element | any; 
+    expandMenu?: Element | any;
 }
 
-const ContextMenuRoot: React.FC<ContextMenuProps> = ({ children }) => {
+const ContextMenuRoot: React.FC<ContextMenuProps> = ({ children, expandMenu }) => {
+
+    const currentPos = useContext(contextPosition);
+
     const contextMenuRef = useRef<HTMLDivElement>(null);
-    const shareMenuRef = useRef<HTMLUListElement>(null);
+    const expandMenuRef = useRef<HTMLUListElement>(null);
 
     const [isVisible, setIsVisible] = useState(false);
     const [position, setPosition] = useState({ x: 0, y: 0 });
 
+
     useEffect(() => {
-        
+
         const handleContextMenu = (event: MouseEvent) => {
             event.preventDefault();
 
@@ -22,19 +29,19 @@ const ContextMenuRoot: React.FC<ContextMenuProps> = ({ children }) => {
             const contextMenuWidth = contextMenuRef.current?.offsetWidth || 0;
             const contextMenuHeight = contextMenuRef.current?.offsetHeight || 0;
 
-            const shareMenuWidth = shareMenuRef.current?.offsetWidth || 0;
+            const expandMenuWidth = expandMenuRef.current?.offsetWidth || 0;
 
             const x = offsetX > innerWidth - contextMenuWidth ? innerWidth - contextMenuWidth : offsetX;
             const y = offsetY > innerHeight - contextMenuHeight ? innerHeight - contextMenuHeight : offsetY;
 
-            if (offsetX > innerWidth - contextMenuWidth - shareMenuWidth) {
+            if (offsetX > innerWidth - contextMenuWidth - expandMenuWidth) {
 
-                shareMenuRef.current?.style.setProperty('left', '-20rem');
+                expandMenuRef.current?.style.setProperty('left', '-20rem');
 
             } else {
 
-                shareMenuRef.current?.style.removeProperty('left');
-                shareMenuRef.current?.style.setProperty('right', '-20rem');
+                expandMenuRef.current?.style.removeProperty('left');
+                expandMenuRef.current?.style.setProperty('right', '-20rem');
 
             }
 
@@ -67,14 +74,17 @@ const ContextMenuRoot: React.FC<ContextMenuProps> = ({ children }) => {
         visibility: isVisible ? 'visible' : 'hidden',
         pointerEvents: isVisible ? 'all' : 'none',
         backgroundColor: '#1f1f1f',
+        listStyle: 'none'
     };
 
     return (
         <div ref={contextMenuRef} className="wrapper" style={menuStyles}>
             <div className="content">
-                <ul ref={shareMenuRef} className="share-menu">
+
+                <contextPosition.Provider value={position}>
                     {children}
-                </ul>
+                </contextPosition.Provider>
+
             </div>
         </div>
     );

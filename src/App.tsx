@@ -1,12 +1,8 @@
-import { Hero } from "./components"
-
-import { Header } from "./components/header";
+import { Hero, ContextMenu, Header } from "./components"
 
 import './assets/styles/global.css'
 
 import { Navigation } from "./components/navigation"
-
-import { ContextMenu } from "./components/context-menu";
 
 function App() {
 
@@ -30,6 +26,14 @@ function App() {
               external={true}
 
             />
+
+            <Navigation.Item
+            
+              txt="feijao"
+              url="/google.com"
+              external={true}
+
+            />
           </Navigation.List>
         </Navigation.Root>
         
@@ -44,14 +48,36 @@ function App() {
 
       <ContextMenu.Root>
         <ContextMenu.Item
+        
           hasAction={false}
-          labelText="macumba"
+          labelText="farra"
+
         />
 
         <ContextMenu.Item
+        
           hasAction={false}
-          labelText="pao com arroz"
+          labelText="cachaça"
+
         />
+
+        <ContextMenu.Item
+        
+          hasAction={false}
+          labelText="sexo"
+
+        />
+
+        <ContextMenu.Expand
+          isVisible={true}
+          expandLabel="share"
+        >
+          <ContextMenu.Item
+            hasAction={false}
+            labelText="tuiter"
+          />
+        </ContextMenu.Expand>
+
       </ContextMenu.Root>
       
     </div>
