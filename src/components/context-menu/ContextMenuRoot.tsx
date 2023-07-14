@@ -1,10 +1,10 @@
-import { useState, useEffect, useRef, useContext } from 'react';
+import { useState, useEffect, useRef, useContext, ReactNode, Component } from 'react';
 
-import { contextPosition } from './PositionContext';
+import { contextPosition, isVisibleContext } from './menuContext';
 
 interface ContextMenuProps {
-    children: Element | any; 
-    expandMenu?: Element | any;
+    children: ReactNode; 
+    expandMenu?: ReactNode;
 }
 
 const ContextMenuRoot: React.FC<ContextMenuProps> = ({ children, expandMenu }) => {
@@ -81,9 +81,12 @@ const ContextMenuRoot: React.FC<ContextMenuProps> = ({ children, expandMenu }) =
         <div ref={contextMenuRef} className="wrapper" style={menuStyles}>
             <div className="content">
 
-                <contextPosition.Provider value={position}>
-                    {children}
-                </contextPosition.Provider>
+                <isVisibleContext.Provider value={isVisible}>
+                    <contextPosition.Provider value={position}>
+                        {children}
+                    </contextPosition.Provider>
+                </isVisibleContext.Provider>
+
 
             </div>
         </div>

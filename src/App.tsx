@@ -82,7 +82,7 @@ function App() {
       </ContextMenu.Root>
 
       <Form.Input
-        inputType="textarea"
+        inputType="email"
         placeholder="secsu gratis"
         required={false}
       />

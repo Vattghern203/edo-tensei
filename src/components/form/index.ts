@@ -1,7 +1,9 @@
-import FormInput from "./FormInput";
+import FormInput from "./inputs/FormInput";
+import TextArea from "./inputs/TextArea";
 
 const Form = {
-    Input: FormInput
+    Input: FormInput,
+    TextArea: TextArea
 };
 
 export default Form;
