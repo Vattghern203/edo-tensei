@@ -14,7 +14,7 @@ export default function NavigationItem({ external, url, txt }:NavItemProps) {
 
         ?
 
-        <li>
+        <li role='listitem' aria-description='listitem'>
             <Link to={url}>
                 {txt}
             </Link>
@@ -22,7 +22,7 @@ export default function NavigationItem({ external, url, txt }:NavItemProps) {
 
         :
 
-        <li>
+        <li role='listitem' aria-description='listitem'>
             <a href={url}>
                 {txt}
             </a>

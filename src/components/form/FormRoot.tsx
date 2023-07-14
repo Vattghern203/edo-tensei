@@ -1,20 +1,28 @@
-import { ReactNode } from 'react'
+import { ReactNode } from 'react';
 
 interface FormProps {
-    submitAction: string
-    children: ReactNode
-    preventDefault?: boolean 
+  submitAction: string;
+  children: ReactNode;
+  handleSubmit?: () => void;
+  method: 'post' | 'get';
 }
 
-const Form = ( { submitAction, children }:FormProps ) => {
+const FormRoot = ({ submitAction, children, handleSubmit, method }: FormProps) => {
 
-    return (
+  const additionalProps = method === 'post' ? { encType: 'multipart/form-data' } : {};
 
-        <form action={submitAction}>
-            {children}
-        </form>
+  return (
 
-    )
-}
+    <form 
+        action={submitAction} 
+        method={method} 
+        role="form" 
+        onSubmit={handleSubmit} 
+        {...additionalProps}>
+      {children}
+    </form>
+    
+  );
+};
 
-export default Form
+export default FormRoot;

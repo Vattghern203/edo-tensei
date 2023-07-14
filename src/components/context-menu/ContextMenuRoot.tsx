@@ -78,8 +78,8 @@ const ContextMenuRoot: React.FC<ContextMenuProps> = ({ children, expandMenu }) =
     };
 
     return (
-        <div ref={contextMenuRef} className="wrapper" style={menuStyles}>
-            <div className="content">
+        <div ref={contextMenuRef} className="wrapper" style={menuStyles} aria-hidden="true">
+            <div className="content" role='list'>
 
                 <isVisibleContext.Provider value={isVisible}>
                     <contextPosition.Provider value={position}>

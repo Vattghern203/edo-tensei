@@ -7,7 +7,9 @@ const InputLabel = ( { labelText, labelFor }:InputLabelProps ) => {
 
     return (
 
-        <label htmlFor={labelFor}>
+        <label 
+            htmlFor={labelFor}
+        >
             { labelText }
         </label>
 

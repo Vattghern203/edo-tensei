@@ -1,8 +1,6 @@
-import { Hero, ContextMenu, Header } from "./components"
+import { Hero, ContextMenu, Header, Navigation } from "./components"
 
 import './assets/styles/global.css'
-
-import { Navigation } from "./components/navigation"
 import Form from "./components/form"
 
 function App() {
@@ -81,11 +79,29 @@ function App() {
 
       </ContextMenu.Root>
 
-      <Form.Input
-        inputType="email"
-        placeholder="secsu gratis"
-        required={false}
-      />
+      <Form.Root submitAction="/auth" method="post">
+
+        <Form.Label
+          labelText="clique here"
+          labelFor="Omario"
+        />
+
+        <Form.Input
+          name="Omario"
+          inputType="email"
+          placeholder="gratis"
+          required={false}
+        />
+
+        
+
+        <Form.Input
+          placeholder="oooooo"
+          name="radio"
+          inputType="number"
+        />
+      </Form.Root>
+
       
     </div>
 
