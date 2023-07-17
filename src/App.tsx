@@ -93,13 +93,23 @@ function App() {
           required={false}
         />
 
-        
+        <Form.RadioInput
+          name="ping"
+          value={10}
+        />        
 
+        <Form.Label
+          labelText="ping"
+          labelFor="radio"
+        />
+        
         <Form.Input
           placeholder="oooooo"
           name="radio"
           inputType="number"
         />
+
+        
       </Form.Root>
 
       
