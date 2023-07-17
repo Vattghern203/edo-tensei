@@ -1,4 +1,6 @@
-interface InputLabelProps {
+import { LabelHTMLAttributes } from "react"
+
+interface InputLabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
     labelText: string,
     labelFor?: string,
 }

@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import { ReactNode, FormHTMLAttributes } from 'react';
 
-interface FormProps {
+interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
   submitAction: string;
   children: ReactNode;
   handleSubmit?: () => void;
