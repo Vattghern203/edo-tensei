@@ -1,4 +1,6 @@
-interface ContextMenuItemProps {
+import { LiHTMLAttributes } from "react"
+
+interface ContextMenuItemProps extends LiHTMLAttributes<HTMLLIElement> {
     hasAction: boolean;
     onClickAction?: () => void;
     labelText: string;

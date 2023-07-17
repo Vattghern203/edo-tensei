@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef, useContext, ReactNode, Component } from 'react';
+import { useState, useEffect, useRef, useContext, ReactNode, MenuHTMLAttributes } from 'react';
 
 import { contextPosition, isVisibleContext } from './menuContext';
 
-interface ContextMenuProps {
+interface ContextMenuProps extends MenuHTMLAttributes<HTMLDivElement> {
     children: ReactNode; 
     expandMenu?: ReactNode;
 }

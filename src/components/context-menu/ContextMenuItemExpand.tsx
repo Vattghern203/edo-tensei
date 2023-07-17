@@ -1,6 +1,6 @@
-import { ReactElement, FC, ReactNode, CSSProperties } from "react"
+import { ReactElement, FC, ReactNode, CSSProperties, LiHTMLAttributes } from "react"
 
-interface ContextMenuExpandProps {
+interface ContextMenuExpandProps extends LiHTMLAttributes<HTMLLIElement> {
     children?: ReactElement | ReactNode,
     expandLabel: string,
     isVisible: boolean

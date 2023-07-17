@@ -1,4 +1,4 @@
-import { Hero, ContextMenu, Header, Navigation } from "./components"
+import { Hero, ContextMenu, Header, Navigation, Footer } from "./components"
 
 import './assets/styles/global.css'
 import Form from "./components/form"
@@ -112,6 +112,22 @@ function App() {
         
       </Form.Root>
 
+    <Footer.Root>
+
+      <Footer.Text
+        text={
+          'hello'
+        }
+      />
+
+      <Footer.List
+      
+        footerItems={
+          
+        }
+      />
+
+    </Footer.Root>
       
     </div>
 
