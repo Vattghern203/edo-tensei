@@ -120,13 +120,6 @@ function App() {
         }
       />
 
-      <Footer.List
-      
-        footerItems={
-          
-        }
-      />
-
     </Footer.Root>
       
     </div>

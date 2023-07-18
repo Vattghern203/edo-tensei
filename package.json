@@ -1,8 +1,8 @@
 {
-  "name": "edo-tensei",
-  "private": true,
-  "version": "0.0.1",
+  "name": "@vattghern203/edo-tensei",
+  "version": "0.0.3",
   "type": "module",
+  "description": "Simple but useful components for react",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -28,5 +28,26 @@
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  }
+  },
+  "main": "src/components/index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vattghern203/edo-tensei.git"
+  },
+  "keywords": [
+    "components",
+    "react",
+    "tsx",
+    "jsx",
+    "front-end"
+  ],
+  "author": "vattghern203",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vattghern203/edo-tensei/issues"
+  },
+  "homepage": "https://github.com/Vattghern203/edo-tensei#readme",
+  "files": [
+    "src/components/"
+  ]
 }

@@ -1,8 +1,8 @@
-import { HTMLAttributes, ReactNode, ReactElement } from "react"
+import { HTMLAttributes } from "react"
 
 interface FooterTextProps extends HTMLAttributes<HTMLHeadingElement> {
 
-    text: string | 
+    text: string
 }
 
 const FooterText = ( { text }:FooterTextProps ) => {

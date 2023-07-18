@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useContext, ReactNode, MenuHTMLAttributes } from 'react';
+import { useState, useEffect, useRef, ReactNode, MenuHTMLAttributes } from 'react';
 
 import { contextPosition, isVisibleContext } from './menuContext';
 
@@ -7,9 +7,9 @@ interface ContextMenuProps extends MenuHTMLAttributes<HTMLDivElement> {
     expandMenu?: ReactNode;
 }
 
-const ContextMenuRoot: React.FC<ContextMenuProps> = ({ children, expandMenu }) => {
+const ContextMenuRoot: React.FC<ContextMenuProps> = ({ children }) => {
 
-    const currentPos = useContext(contextPosition);
+    //const currentPos = useContext(contextPosition);
 
     const contextMenuRef = useRef<HTMLDivElement>(null);
     const expandMenuRef = useRef<HTMLUListElement>(null);
