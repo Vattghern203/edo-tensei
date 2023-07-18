@@ -3,7 +3,7 @@ import { useState, useEffect, useRef, ReactNode, MenuHTMLAttributes } from 'reac
 import { contextPosition, isVisibleContext } from './menuContext';
 
 interface ContextMenuProps extends MenuHTMLAttributes<HTMLDivElement> {
-    children: ReactNode; 
+    children: ReactNode;
     expandMenu?: ReactNode;
 }
 

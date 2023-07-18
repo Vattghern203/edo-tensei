@@ -5,12 +5,13 @@ interface InputLabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
     labelFor?: string,
 }
 
-const InputLabel = ( { labelText, labelFor }:InputLabelProps ) => {
+const InputLabel = ( { labelText, labelFor, ...props }:InputLabelProps ) => {
 
     return (
 
         <label 
             htmlFor={labelFor}
+            {...props}
         >
             { labelText }
         </label>

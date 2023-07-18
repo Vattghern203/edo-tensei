@@ -1,15 +1,14 @@
-interface TextAreaProps {
+import { TextareaHTMLAttributes } from "react"
+
+interface TextAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
     resize?: 'horizontal' | 'vertical' | 'none',
     cols?: number,
     rows?: number,
-    placeholder: string,
-    minLen?: number,
-    maxLen?: number,
     required: boolean,
     disabled?: boolean
 }
 
-const TextArea = ({ placeholder, required, cols, maxLen, resize, minLen, rows, disabled }:TextAreaProps) => {
+const TextArea = ({ placeholder, required, cols, resize, rows, disabled }:TextAreaProps) => {
     
     return (
 
@@ -25,8 +24,6 @@ const TextArea = ({ placeholder, required, cols, maxLen, resize, minLen, rows, d
             disabled={disabled}
             rows={rows}
             cols={cols}
-            minLength={minLen}
-            maxLength={maxLen}
         >
 
         </textarea>
