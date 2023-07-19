@@ -1,16 +1,17 @@
-import { SelectHTMLAttributes, ReactNode } from "react"
+import { SelectHTMLAttributes, ReactNode} from "react"
 
 interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
     name: string;
-    options: ReactNode;
+    value: string | number;
+    children: ReactNode;
 }
 
-const Select = ( { name, options, ...props }:SelectProps ) => {
+const Select = ( { name, value, children, ...props }:SelectProps ) => {
 
     return (
 
-        <select name={name} {...props}>
-            {options}
+        <select name={name} value={value} {...props} >
+            {children}
         </select>
     )
 }

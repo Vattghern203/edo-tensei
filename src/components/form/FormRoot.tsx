@@ -18,7 +18,8 @@ const FormRoot = ({ submitAction, children, handleSubmit, method }: FormProps) =
         method={method} 
         role="form" 
         onSubmit={handleSubmit} 
-        {...additionalProps}>
+        {...additionalProps}
+    >
       {children}
     </form>
     

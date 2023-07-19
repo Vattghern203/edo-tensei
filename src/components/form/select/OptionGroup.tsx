@@ -3,10 +3,10 @@ import { OptgroupHTMLAttributes, ReactNode } from "react"
 interface OptionGroupProps extends OptgroupHTMLAttributes<HTMLOptGroupElement> {
 
     label: string;
-    option: ReactNode;
+    children: ReactNode;
 }
 
-const OptionGroup = ( { label, option, ...props }:OptionGroupProps ) => {
+const OptionGroup = ( { label, children, ...props }:OptionGroupProps ) => {
 
     return (
 
@@ -15,7 +15,7 @@ const OptionGroup = ( { label, option, ...props }:OptionGroupProps ) => {
             {...props}
         >
 
-            {option}
+            {children}
 
         </optgroup>
     )

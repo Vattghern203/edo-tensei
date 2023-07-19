@@ -10,7 +10,7 @@ const Option = ( { value, ...props}:OptionProps ) => {
     return (
 
         <option value={value} {...props}>
-
+            {value}
         </option>
     )
 }

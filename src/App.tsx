@@ -1,7 +1,6 @@
-import { Hero, ContextMenu, Header, Navigation, Footer } from "./components"
+import { Hero, ContextMenu, Header, Navigation, Footer, Form } from "./components"
 
 import './assets/styles/global.css'
-import Form from "./components/form"
 
 function App() {
 
@@ -110,6 +109,8 @@ function App() {
         />
 
         
+
+        
       </Form.Root>
 
     <Footer.Root>
@@ -119,6 +120,13 @@ function App() {
           'hello'
         }
       />
+
+      <Form.Select value={'papagaio'} name="pog">
+        <Form.Option value={'YES'} />
+        <Form.Option value={'NO'} />
+        <Form.Option value={'MAYBE'} />
+        <Form.Option value={'SOMETIME'} />
+      </Form.Select>
 
     </Footer.Root>
       
