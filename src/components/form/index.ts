@@ -1,6 +1,7 @@
 import FormRoot from "./FormRoot";
 import InputLabel from "./InputLabel";
 import FormInput from "./inputs/FormInput";
+import InputFile from "./inputs/InputFile";
 import RadioInput from "./inputs/RadioInput";
 import TextArea from "./inputs/TextArea";
 import Option from "./select/Option";
@@ -15,7 +16,8 @@ const Form = {
     RadioInput: RadioInput,
     Select: Select,
     Option: Option,
-    OptionGroup: OptionGroup
+    OptionGroup: OptionGroup,
+    FileInput: InputFile
 };
 
 export default Form;

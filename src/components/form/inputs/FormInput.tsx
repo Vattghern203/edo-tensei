@@ -1,7 +1,9 @@
 import { InputHTMLAttributes } from "react"
 
+import './input.module.css'
+
 interface FormInputProps extends InputHTMLAttributes<HTMLInputElement> {
-    inputType: 'text' | 'email' | 'password' | 'number' | 'option' | 'checkbox' | 'select';
+    inputType: 'text' | 'email' | 'password' | 'number' | 'option' | 'checkbox' | 'color';
     placeholder: string;
     name: string,
     required?: boolean;

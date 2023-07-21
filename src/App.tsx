@@ -108,7 +108,11 @@ function App() {
           inputType="number"
         />
 
-        
+        <Form.Input
+          inputType="color"
+          name="color-name"
+          placeholder="select a color"
+        />
 
         
       </Form.Root>
