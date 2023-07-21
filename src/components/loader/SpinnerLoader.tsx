@@ -15,7 +15,7 @@ const SpinnerLoader = ( { color = `#444444`, size = 50, isLoading }:SpinnerLoade
 
     const spinnerStyles: CSSProperties = {
 
-        display: isLoading ? "block" : "none",
+        display: isLoading ? "inline-flex" : "none",
         width: size,
         height: size,
         borderRadius: '50%',
@@ -26,12 +26,10 @@ const SpinnerLoader = ( { color = `#444444`, size = 50, isLoading }:SpinnerLoade
 
     return (
 
-        <>
+        <div data-spinner-loader style={spinnerStyles} role="loading">
 
-            <div data-spinner-loader style={spinnerStyles} role="loading">
-
-            </div>
-        </>
+        </div>
+        
 
     )
 }

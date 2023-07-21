@@ -139,6 +139,12 @@ function App() {
       size={100}
       isLoading={true}
     />
+
+    <Loader.ThreePoints
+      color="white"
+      size={100}
+      isLoading={true}
+    />
       
     </div>
 
