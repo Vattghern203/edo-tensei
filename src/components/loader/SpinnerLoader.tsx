@@ -1,0 +1,39 @@
+import { CSSProperties } from "react";
+
+import './loader.module.css'
+
+interface SpinnerLoaderProps {
+
+    size?: number;
+    color?: string;
+    isLoading?: boolean;
+}
+
+
+
+const SpinnerLoader = ( { color = `#444444`, size = 50, isLoading }:SpinnerLoaderProps ) => {
+
+    const spinnerStyles: CSSProperties = {
+
+        display: isLoading ? "block" : "none",
+        width: size,
+        height: size,
+        borderRadius: '50%',
+        border: `${size / 10}px solid ${color}`,
+        borderTop: `${size / 10}px solid transparent`,
+    }
+
+
+    return (
+
+        <>
+
+            <div data-spinner-loader style={spinnerStyles} role="loading">
+
+            </div>
+        </>
+
+    )
+}
+
+export default SpinnerLoader;

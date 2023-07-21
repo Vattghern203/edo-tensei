@@ -1,4 +1,4 @@
-import { Hero, ContextMenu, Header, Navigation, Footer, Form } from "./components"
+import { Hero, ContextMenu, Header, Navigation, Footer, Form, Loader } from "./components"
 
 import './assets/styles/global.css'
 
@@ -133,6 +133,12 @@ function App() {
       </Form.Select>
 
     </Footer.Root>
+
+    <Loader.Spinner
+      color="white"
+      size={100}
+      isLoading={true}
+    />
       
     </div>
 
