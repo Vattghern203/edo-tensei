@@ -1,5 +1,5 @@
 import SpinnerLoader from "./SpinnerLoader";
-import ThreePointsLoader from "./ThreePointsLoader";
+import ThreePointsLoader from "./three-points/ThreePointsLoader";
 
 const Loader = {
     Spinner: SpinnerLoader,

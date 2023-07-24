@@ -1,6 +1,6 @@
 import { CSSProperties } from "react";
 
-import './loader.module.css'
+import './loader.css'
 
 interface SpinnerLoaderProps {
 
@@ -15,7 +15,7 @@ const SpinnerLoader = ( { color = `#444444`, size = 50, isLoading }:SpinnerLoade
 
     const spinnerStyles: CSSProperties = {
 
-        display: isLoading ? "inline-flex" : "none",
+        display: isLoading ? "flex" : "none",
         width: size,
         height: size,
         borderRadius: '50%',

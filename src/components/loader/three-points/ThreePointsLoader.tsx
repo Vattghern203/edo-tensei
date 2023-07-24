@@ -1,6 +1,6 @@
 import { CSSProperties } from "react"
 
-import './loader.module.css'
+import './style.css'
 
 interface ThreePointsLoader {
     size?: number;
@@ -13,6 +13,8 @@ const ThreePointsLoader = ( { color='white', size=50, isLoading }:ThreePointsLoa
     const mainLoaderStyles: CSSProperties =  {
 
         display: isLoading ? "inline-flex" : "none",
+        alignItems: "center",
+        justifyContent: "space-evenly",
         gap: `4px`,
         width: `${size}px`,
         height: `${size}px`,
@@ -31,8 +33,8 @@ const ThreePointsLoader = ( { color='white', size=50, isLoading }:ThreePointsLoa
     return (
 
         <article data-3points-loader style={mainLoaderStyles}>
-            <span style={childLoaderStyles} className='side-point'></span>
-            <span style={childLoaderStyles} className='center-point'></span>
+            <span className='side-point' style={childLoaderStyles}></span>
+            <span className='center-point' style={childLoaderStyles}></span>
             <span className='side-point' style={childLoaderStyles}></span>
         </article>
     )

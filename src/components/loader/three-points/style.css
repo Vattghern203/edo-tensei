@@ -1,0 +1,35 @@
+@keyframes center-point {
+    0% {
+        height: 50%;
+    }
+
+    50% {
+        height: 90%;
+    }
+
+    100% {
+        height: 50%;
+    }
+}
+
+@keyframes side-points {
+    0% {
+        height: 90%;
+    }
+
+    50% {
+        height: 50%;
+    }
+
+    100% {
+        height: 90%;
+    }
+}
+
+.side-point {
+    animation: side-points 1.8s ease infinite;
+}
+
+.center-point {
+    animation: center-point 1.8s ease infinite;
+}
