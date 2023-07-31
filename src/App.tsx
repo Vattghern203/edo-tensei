@@ -147,7 +147,7 @@ function App() {
     />
 
     <Skeleton.Root animation="pulse" color="whitesmoke" isLoading={true}>
-      <Skeleton.Image size={200} />
+      <Skeleton.Animation />
     </Skeleton.Root>
       
     </div>
