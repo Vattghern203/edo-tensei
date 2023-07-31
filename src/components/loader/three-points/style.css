@@ -27,9 +27,9 @@
 }
 
 .side-point {
-    animation: side-points 1.8s ease infinite;
+    animation: side-points 1.8s linear infinite alternate;
 }
 
 .center-point {
-    animation: center-point 1.8s ease infinite;
+    animation: center-point 1.8s linear infinite alternate;
 }

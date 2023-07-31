@@ -1,4 +1,4 @@
-import { Hero, ContextMenu, Header, Navigation, Footer, Form, Loader } from "./components"
+import { Hero, ContextMenu, Header, Navigation, Footer, Form, Loader, Skeleton } from "./components"
 
 import './assets/styles/global.css'
 
@@ -145,6 +145,10 @@ function App() {
       size={100}
       isLoading={true}
     />
+
+    <Skeleton.Root animation="pulse" color="whitesmoke" isLoading={true}>
+      <Skeleton.Image size={200} />
+    </Skeleton.Root>
       
     </div>
 
