@@ -1,6 +1,6 @@
 import { ReactNode, CSSProperties } from "react"
 
-import styles from "./skeleton.module.css"
+import "./skeleton.css"
 
 interface SkeletonRootProps {
     children: ReactNode;
@@ -14,16 +14,12 @@ const SkeletonRoot = ( { children, color, isLoading, animation }:SkeletonRootPro
     const skeletonStyles: CSSProperties = {
         display: isLoading ? "block" : "none",
         backgroundColor: color,
-        animationName: animation,
-        animationTimingFunction: "linear",
-        animationDuration: "1.75s",
-        animationFillMode: "forwards",
-        animationIterationCount: "infinite",
     }
 
     return (
 
-        <div className={styles.skeleton} style={skeletonStyles}>
+
+        <div className={`skeleton ${animation}`} style={skeletonStyles}>
             {children}
         </div>
     )

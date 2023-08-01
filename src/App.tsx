@@ -147,7 +147,15 @@ function App() {
     />
 
     <Skeleton.Root animation="pulse" color="whitesmoke" isLoading={true}>
-      <Skeleton.Animation />
+      <Skeleton.Image
+        size={200}
+        color="#054235"
+      />
+
+      <Skeleton.Paragraph 
+        color="blue"
+        numberOfParagraphs={10}
+      />
     </Skeleton.Root>
       
     </div>

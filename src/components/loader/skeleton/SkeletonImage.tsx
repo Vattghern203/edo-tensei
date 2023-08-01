@@ -1,20 +1,23 @@
 import { CSSProperties } from "react"
 
+import "./skeleton.css"
+
 interface SkeletonImageProps {
     size: number;
+    color: string;
 }
 
-const SkeletonImage = ( { size }:SkeletonImageProps ) => {
+const SkeletonImage = ( { size, color }:SkeletonImageProps ) => {
 
     const SkeletonImageStyle: CSSProperties = {
         width: `${size}px`,
         height: `${size}px`,
-        borderRadius: "50%",
+        backgroundColor: color,
     }
 
     return (
         
-        <div style={SkeletonImageStyle}>
+        <div className="skeleton__img" style={SkeletonImageStyle}>
 
         </div>
     )
