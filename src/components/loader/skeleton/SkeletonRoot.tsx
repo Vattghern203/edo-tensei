@@ -1,8 +1,8 @@
-import { ReactNode, CSSProperties } from "react"
+import { ReactNode, CSSProperties, HTMLAttributes } from "react"
 
 import "./skeleton.css"
 
-interface SkeletonRootProps {
+interface SkeletonRootProps extends HTMLAttributes<HTMLDivElement> {
     children: ReactNode;
     animation: "shimmer" | "pulse";
     color: string;

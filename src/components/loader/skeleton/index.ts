@@ -1,13 +1,15 @@
+import SkeletonBox from "./SkeletonBox";
+import SkeletonHeading from "./SkeletonHeading";
 import SkeletonImage from "./SkeletonImage";
 import SkeletonParagraph from "./SkeletonParagraph";
 import SkeletonRoot from "./SkeletonRoot";
-import SkeletonAnimation from "./test";
 
 const Skeleton = {
     Root: SkeletonRoot,
     Image: SkeletonImage,
-    Animation: SkeletonAnimation,
-    Paragraph: SkeletonParagraph
+    Paragraph: SkeletonParagraph,
+    Box: SkeletonBox,
+    Heading: SkeletonHeading
 }
 
 export default Skeleton

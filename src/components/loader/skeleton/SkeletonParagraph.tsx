@@ -2,21 +2,20 @@ import { CSSProperties } from "react"
 
 interface SkeletonParagraphProps {
     color: string;
-    numberOfParagraphs: number;
 }
 
-const SkeletonParagraph = ( { color, numberOfParagraphs }:SkeletonParagraphProps ) => {
+const SkeletonParagraph = ( { color }:SkeletonParagraphProps ) => {
 
     const SkeletonParagraphStyles:CSSProperties = {
-        padding: `${numberOfParagraphs}rem`
+        backgroundColor: color
     }
 
     return (
 
-        <article className="skeleton__wrapper" style={SkeletonParagraphStyles}>
-            <div className="skeleton__paragraph"></div>
-            <div className="skeleton__paragraph"></div>
-            <div className="skeleton__paragraph"></div>
+        <article className="skeleton__wrapper" role="loading">
+            <div className="skeleton__paragraph" style={SkeletonParagraphStyles}></div>
+            <div className="skeleton__paragraph" style={SkeletonParagraphStyles}></div>
+            <div className="skeleton__paragraph" style={SkeletonParagraphStyles}></div>
         </article>
     )
 }
