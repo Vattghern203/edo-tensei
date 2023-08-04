@@ -19,7 +19,7 @@ function App() {
           <Navigation.List>
             <Navigation.Item
             
-              txt="sexo"
+              txt="torrent"
               url="/google.com"
               external={true}
 
@@ -62,7 +62,7 @@ function App() {
         <ContextMenu.Item
         
           hasAction={false}
-          labelText="sexo"
+          labelText="pao"
 
         />
 
