@@ -19,7 +19,12 @@ const SkeletonRoot = ( { children, color, isLoading, animation }:SkeletonRootPro
     return (
 
 
-        <div className={`skeleton ${animation}`} style={skeletonStyles}>
+        <div 
+            className={`skeleton ${animation}`} 
+            style={skeletonStyles}
+            role="loading"
+            aria-label="loading"
+        >
             {children}
         </div>
     )

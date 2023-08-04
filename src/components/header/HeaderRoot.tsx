@@ -2,12 +2,12 @@ import { ReactNode } from 'react'
 
 interface HeaderProps {
     children: ReactNode,
+    headerLabel?: string, // Optional prop for providing a custom accessible label
 }
 
-export default function HeaderRoot({ children }:HeaderProps) {
-
+export default function HeaderRoot({ children, headerLabel }: HeaderProps) {
     return (
-        <header>
+        <header aria-label={headerLabel}>
             {children}
         </header>
     )
