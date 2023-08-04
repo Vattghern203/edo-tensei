@@ -1,4 +1,4 @@
-import { Hero, ContextMenu, Header, Navigation, Footer, Form, Loader, Skeleton } from "./components"
+import { Hero, ContextMenu, Header, Navigation, Footer, Form, Loader, Skeleton, ToggleSwitch } from "./components"
 
 import './assets/styles/global.css'
 
@@ -152,6 +152,11 @@ function App() {
         color="gray"
       />
 
+      <Skeleton.Heading
+        color="gray"
+        height="200px"
+      />
+
       <Skeleton.Paragraph 
         color="gray"
       />
@@ -163,6 +168,12 @@ function App() {
       />
 
     </Skeleton.Root>
+
+    <ToggleSwitch
+      buttonType="rounded"
+      onToggle={() => console.log('button')}
+      activeColor="#256"
+    />
       
     </div>
 

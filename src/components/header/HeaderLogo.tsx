@@ -6,10 +6,10 @@ interface HeaderLogoProps {
 export default function HeaderLogo({isImg, logo}:HeaderLogoProps) {
 
     return (
-        <div className="flex align-center">
+        <div>
             { isImg ?
 
-                <img className="object-cover" src={logo} alt="site logo" />
+                <img src={logo} alt="site logo" />
 
                 :
 

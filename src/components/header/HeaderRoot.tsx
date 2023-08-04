@@ -7,7 +7,7 @@ interface HeaderProps {
 export default function HeaderRoot({ children }:HeaderProps) {
 
     return (
-        <header className='flex justify-around'>
+        <header>
             {children}
         </header>
     )

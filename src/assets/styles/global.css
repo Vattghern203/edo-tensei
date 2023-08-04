@@ -1,1 +1,19 @@
-@import "/node_modules/akatsuki-css/dist/style.css"
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: inherit;
+}
+
+body {
+    box-sizing: border-box;
+    background-color: #1f1f1f;
+    display: grid;
+    place-items: center;
+    gap: 2rem;
+    align-items: center;
+    padding: 1.6rem;
+    margin: 1.6rem;
+}
