@@ -15,10 +15,6 @@ const InputFile = ( { accept, name, onFileChange, ...props }:InputFileProps ) =>
         onFileChange(file);
     }
 
-    const triggerFileInput = () => {
-        inputRef.current?.click();
-    }
-
     return (
 
         <input 

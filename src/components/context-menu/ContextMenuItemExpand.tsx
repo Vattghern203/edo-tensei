@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { ReactNode, CSSProperties, LiHTMLAttributes } from "react";
 
 interface ContextMenuExpandProps extends LiHTMLAttributes<HTMLLIElement> {
