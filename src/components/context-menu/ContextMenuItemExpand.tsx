@@ -1,33 +1,39 @@
-import { ReactElement, FC, ReactNode, CSSProperties, LiHTMLAttributes } from "react"
+import React, { FC } from "react";
+import { ReactNode, CSSProperties, LiHTMLAttributes } from "react";
 
 interface ContextMenuExpandProps extends LiHTMLAttributes<HTMLLIElement> {
-    children?: ReactElement | ReactNode,
-    expandLabel: string,
-    isVisible: boolean
+  children?: ReactNode;
+  expandLabel: string;
+  isVisible: boolean;
 }
 
-const ContextMenuExpand: FC<ContextMenuExpandProps> = ( { children, expandLabel, isVisible } ) => {
+const ContextMenuExpand: FC<ContextMenuExpandProps> = ({
+  children,
+  expandLabel,
+  isVisible,
+  ...restProps
+}) => {
+  const expandMenuStyle: CSSProperties = {
+    visibility: isVisible ? "visible" : "hidden",
+    pointerEvents: isVisible ? "all" : "none",
+  };
 
-    //const expandMenuRef = useRef<HTMLUListElement>(null)
+  return (
+    <li className="expand-item" {...restProps}>
+      <div
+        role="button"
+        aria-expanded={isVisible}
+        aria-haspopup="true"
+        aria-label={expandLabel}
+      >
+        <span>{`${expandLabel} >`}</span>
+      </div>
 
-    const expandMenuStyle: CSSProperties = {
-        visibility: isVisible ? 'visible' : 'hidden',
-        pointerEvents: isVisible ? 'all' : 'none',
-    }
+      <ul style={expandMenuStyle} role="menu">
+        {children}
+      </ul>
+    </li>
+  );
+};
 
-    return (
-        <li className="expand-item">
-            <div>
-                <span>
-                    {`${expandLabel} >`}
-                </span>
-            </div>
-
-            <ul style={expandMenuStyle}>
-                {children}
-            </ul>
-        </li>
-    )
-}
-
-export default ContextMenuExpand
+export default ContextMenuExpand;

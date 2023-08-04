@@ -156,7 +156,11 @@ function App() {
         color="gray"
       />
 
-      
+      <Skeleton.Box
+        height={'10vh'}
+        width={'100%'}
+        color="gray"
+      />
 
     </Skeleton.Root>
       

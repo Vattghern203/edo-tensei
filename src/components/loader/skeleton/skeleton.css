@@ -28,6 +28,7 @@
     background-repeat: no-repeat;
     background-position: 150% 0;
     animation: shimmer 1.75s linear infinite;
+    filter: blur(0.08vmin);
 }
 
 .skeleton.pulse, .skeleton__wrapper.pulse * {
