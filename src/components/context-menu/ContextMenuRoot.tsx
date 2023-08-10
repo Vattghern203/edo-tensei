@@ -87,7 +87,6 @@ const ContextMenuRoot: React.FC<ContextMenuProps> = ({ children }) => {
                     </contextPosition.Provider>
                 </isVisibleContext.Provider>
 
-
             </div>
         </div>
     );

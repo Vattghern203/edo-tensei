@@ -1,6 +1,6 @@
 {
   "name": "@vattghern203/edo-tensei",
-  "version": "0.0.6",
+  "version": "0.0.10",
   "type": "module",
   "description": "Simple but useful components for react",
   "scripts": {
@@ -26,9 +26,12 @@
   },
   "peerDependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.1"
   },
   "main": "src/components/index.ts",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Vattghern203/edo-tensei.git"
@@ -47,6 +50,10 @@
   },
   "homepage": "https://github.com/Vattghern203/edo-tensei#readme",
   "files": [
-    "src/components/"
-  ]
+    "src/components/",
+    "dist/"
+  ],
+  "dependencies": {
+    "styled-components": "^6.0.7"
+  }
 }
