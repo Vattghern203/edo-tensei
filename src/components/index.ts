@@ -7,4 +7,6 @@ export { default as Loader} from './loader/index'
 export { default as Navigation } from './navigation/index'
 export { default as Skeleton } from './loader/skeleton/index'
 
+export { default as Carousel} from './carousel/Carousel'
+
 export { default as ToggleSwitch } from './buttons/toggle-switch/ToggleSwitch'

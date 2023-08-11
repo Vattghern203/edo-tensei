@@ -10,7 +10,7 @@ interface FooterExternalProps extends LinkHTMLAttributes<HTMLLinkElement> {
     external: boolean;
 }
 
-const FooterItemExternal = ( { label, href, external }:FooterExternalProps ) => {
+const FooterLink = ( { label, href, external }:FooterExternalProps ) => {
 
     return (
 
@@ -36,4 +36,4 @@ const FooterItemExternal = ( { label, href, external }:FooterExternalProps ) => 
     )
 }
 
-export default FooterItemExternal
+export default FooterLink

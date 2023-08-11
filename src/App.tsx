@@ -1,8 +1,23 @@
-import { Hero, ContextMenu, Header, Navigation, Footer, Form, Loader, Skeleton, ToggleSwitch } from "./components"
+import { Hero, ContextMenu, Header, Navigation, Footer, Form, Loader, Skeleton, ToggleSwitch, Carousel } from "./components"
 
 import './assets/styles/global.css'
 
 function App() {
+
+  const imgs = [
+    {
+      imgSrc: "https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8amFwYW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+
+      imgAlt: "japan god"
+
+    },
+
+    {
+      imgSrc: "https://images.unsplash.com/photo-1492571350019-22de08371fd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGphcGFufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+
+      imgAlt: "japan godzera"
+    }
+  ]
 
   return (
 
@@ -18,7 +33,7 @@ function App() {
         <Navigation.Root>
           <Navigation.List>
             <Navigation.Item
-            
+
               txt="torrent"
               url="/google.com"
               external={true}
@@ -26,7 +41,7 @@ function App() {
             />
 
             <Navigation.Item
-            
+
               txt="feijao"
               url="/google.com"
               external={true}
@@ -34,10 +49,10 @@ function App() {
             />
           </Navigation.List>
         </Navigation.Root>
-        
+
       </Header.Root>
 
-  
+
       <Hero
         heroImg="/akatsuki-hero.jpg"
         heroPos="center"
@@ -47,20 +62,20 @@ function App() {
       <ContextMenu.Root>
 
         <ContextMenu.Item
-        
+
           hasAction={false}
           labelText="farra"
         />
 
         <ContextMenu.Item
-        
+
           hasAction={false}
           labelText="cachaça"
 
         />
 
         <ContextMenu.Item
-        
+
           hasAction={false}
           labelText="pao"
 
@@ -95,13 +110,13 @@ function App() {
         <Form.RadioInput
           name="ping"
           value={10}
-        />        
+        />
 
         <Form.Label
           labelText="ping"
           labelFor="radio"
         />
-        
+
         <Form.Input
           placeholder="oooooo"
           name="radio"
@@ -114,67 +129,69 @@ function App() {
           placeholder="select a color"
         />
 
-        
+
       </Form.Root>
 
-    <Footer.Root>
+      <Footer.Root>
 
-      <Footer.Text
-        text={
-          'hello'
-        }
+        <Footer.Text
+          text={
+            'hello'
+          }
+        />
+
+        <Form.Select value={'papagaio'} name="pog">
+          <Form.Option value={'YES'} />
+          <Form.Option value={'NO'} />
+          <Form.Option value={'MAYBE'} />
+          <Form.Option value={'SOMETIME'} />
+        </Form.Select>
+
+      </Footer.Root>
+
+      <Loader.Spinner
+        color="white"
+        size={100}
+        isLoading={true}
       />
 
-      <Form.Select value={'papagaio'} name="pog">
-        <Form.Option value={'YES'} />
-        <Form.Option value={'NO'} />
-        <Form.Option value={'MAYBE'} />
-        <Form.Option value={'SOMETIME'} />
-      </Form.Select>
-
-    </Footer.Root>
-
-    <Loader.Spinner
-      color="white"
-      size={100}
-      isLoading={true}
-    />
-
-    <Loader.ThreePoints
-      color="magenta"
-      size={100}
-      isLoading={true}
-    />
-
-    <Skeleton.Root animation="shimmer" color="whitesmoke" isLoading={true}>
-      <Skeleton.Image
-        size={200}
-        color="gray"
+      <Loader.ThreePoints
+        color="magenta"
+        size={100}
+        isLoading={true}
       />
 
-      <Skeleton.Heading
-        color="gray"
-        height="200px"
+      <Skeleton.Root animation="shimmer" color="whitesmoke" isLoading={true}>
+        <Skeleton.Image
+          size={200}
+          color="gray"
+        />
+
+        <Skeleton.Heading
+          color="gray"
+          height="200px"
+        />
+
+        <Skeleton.Paragraph
+          color="gray"
+        />
+
+        <Skeleton.Box
+          height={'10vh'}
+          width={'100%'}
+          color="gray"
+        />
+
+      </Skeleton.Root>
+
+      <ToggleSwitch
+        buttonType="rounded"
+        onToggle={() => console.log('button')}
+        activeColor="#256"
       />
 
-      <Skeleton.Paragraph 
-        color="gray"
-      />
+      <Carousel imgArray={imgs} showtime={2000}/>
 
-      <Skeleton.Box
-        height={'10vh'}
-        width={'100%'}
-        color="gray"
-      />
-
-    </Skeleton.Root>
-
-    <ToggleSwitch
-      buttonType="rounded"
-      onToggle={() => console.log('button')}
-      activeColor="#256"
-    />
-      
     </div>
 
   )
