@@ -1,7 +1,7 @@
 import { createContext } from 'react'
 
-export const contextPosition = createContext({
-    x: 0, y:0
+export const contextSettings = createContext({
+    x: 0, 
+    y: 0,
+    isVisible: false
 })
-
-export const isVisibleContext = createContext(false)

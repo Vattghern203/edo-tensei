@@ -16,6 +16,18 @@ function App() {
       imgSrc: "https://images.unsplash.com/photo-1492571350019-22de08371fd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGphcGFufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
 
       imgAlt: "japan godzera"
+    },
+
+    {
+      imgSrc: "https://images.unsplash.com/photo-1542931287-023b922fa89b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHRva3lvfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+
+      imgAlt: "Kini no Na Wa vibes"
+    },
+
+    {
+      imgSrc: "https://images.unsplash.com/photo-1551641506-ee5bf4cb45f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+
+      imgAlt: "Night"
     }
   ]
 
@@ -89,6 +101,7 @@ function App() {
             hasAction={false}
             labelText="tuiter"
           />
+          
         </ContextMenu.Expand>
 
       </ContextMenu.Root>
@@ -190,7 +203,7 @@ function App() {
         activeColor="#256"
       />
 
-      <Carousel imgArray={imgs} showtime={2000}/>
+      <Carousel imgArray={imgs} showtime={4000}/>
 
     </div>
 

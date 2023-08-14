@@ -1,5 +1,7 @@
-import { FC } from "react";
-import { ReactNode, CSSProperties, LiHTMLAttributes } from "react";
+import { FC, ReactNode, CSSProperties, LiHTMLAttributes, useContext } from "react";
+
+import { contextSettings } from "./menuContext"
+
 
 interface ContextMenuExpandProps extends LiHTMLAttributes<HTMLLIElement> {
   children?: ReactNode;
@@ -10,19 +12,23 @@ interface ContextMenuExpandProps extends LiHTMLAttributes<HTMLLIElement> {
 const ContextMenuExpand: FC<ContextMenuExpandProps> = ({
   children,
   expandLabel,
-  isVisible,
   ...restProps
 }) => {
-  const expandMenuStyle: CSSProperties = {
-    visibility: isVisible ? "visible" : "hidden",
-    pointerEvents: isVisible ? "all" : "none",
-  };
 
+  const menuContext = useContext(contextSettings)
+
+  const expandMenuStyle: CSSProperties = {
+    visibility: menuContext.isVisible ? "visible" : "hidden",
+    pointerEvents: menuContext.isVisible ? "all" : "none",
+    top: menuContext.x,
+    left: menuContext.y
+  };
+  
   return (
     <li className="expand-item" {...restProps}>
       <div
         role="button"
-        aria-expanded={isVisible}
+        aria-expanded={menuContext.isVisible}
         aria-haspopup="true"
         aria-label={expandLabel}
       >

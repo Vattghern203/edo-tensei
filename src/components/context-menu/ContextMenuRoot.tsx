@@ -1,9 +1,9 @@
-import { useState, useEffect, useRef, ReactNode, MenuHTMLAttributes } from 'react';
+import { useState, useEffect, useRef, ReactNode, ReactElement, MenuHTMLAttributes } from 'react';
 
-import { contextPosition, isVisibleContext } from './menuContext';
+import { contextSettings } from './menuContext';
 
 interface ContextMenuProps extends MenuHTMLAttributes<HTMLDivElement> {
-    children: ReactNode;
+    children: ReactNode | ReactElement;
     expandMenu?: ReactNode;
 }
 
@@ -81,11 +81,9 @@ const ContextMenuRoot: React.FC<ContextMenuProps> = ({ children }) => {
         <div ref={contextMenuRef} className="wrapper" style={menuStyles} aria-hidden="true">
             <div className="content" role='list'>
 
-                <isVisibleContext.Provider value={isVisible}>
-                    <contextPosition.Provider value={position}>
-                        {children}
-                    </contextPosition.Provider>
-                </isVisibleContext.Provider>
+               <contextSettings.Provider value={{x: position.x, y:position.y, isVisible:isVisible}}>
+                {children}
+               </contextSettings.Provider>
 
             </div>
         </div>
