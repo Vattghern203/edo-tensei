@@ -2,24 +2,26 @@ import { useContext, CSSProperties } from 'react'
 
 import { contextSettings } from "./menuContext"
 
-interface ExpandItemProps {
-    position: { x: number, y: number}
-    isVisible: boolean
+interface IContextMenu {
+    x: number;
+    y: number;
+    isVisible: boolean;
 }
 
-const ContextExpandItem = ( {position, isVisible }:ExpandItemProps ) => {
+const ContextExpandItem = () => {
 
-    const contextSetting = useContext(contextSettings)
+    const context:IContextMenu = useContext(contextSettings)
 
-    const  ContextItemStyles:CSSProperties = {
+    const ContextItemStyles:CSSProperties = {
         backgroundColor: "red",
-        top: position.x,
-        left: position.y
+        top: context.x,
+        left: context.y,
+        visibility: context.isVisible ? "visible" : 'hidden'
     } 
 
   return (
-    <article style={ContextItemStyles}>
-        <p>{contextSetting.isVisible}</p>
+    <article style={ContextItemStyles} aria-hidden={!context.isVisible}>
+        <p>{context.isVisible}</p>
     </article>
   )
 }

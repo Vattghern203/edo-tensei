@@ -97,10 +97,7 @@ function App() {
           isVisible={true}
           expandLabel="share"
         >
-          <ContextMenu.Item
-            hasAction={false}
-            labelText="tuiter"
-          />
+          <ContextMenu.ExpandItem />
           
         </ContextMenu.Expand>
 

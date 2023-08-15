@@ -1,3 +1,4 @@
+import ContextExpandItem from "./ContextExpandItem";
 import ContextIcon from "./ContextIcon";
 import ContextMenuItem from "./ContextMenuItem";
 import ContextMenuExpand from "./ContextMenuItemExpand";
@@ -7,7 +8,8 @@ const ContextMenu = {
     Root: ContextMenuRoot,
     Item: ContextMenuItem,
     Icon: ContextIcon,
-    Expand: ContextMenuExpand
+    Expand: ContextMenuExpand,
+    ExpandItem: ContextExpandItem
 }
 
 export default ContextMenu

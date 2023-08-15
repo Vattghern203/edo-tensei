@@ -9,8 +9,6 @@ interface ContextMenuProps extends MenuHTMLAttributes<HTMLDivElement> {
 
 const ContextMenuRoot: React.FC<ContextMenuProps> = ({ children }) => {
 
-    //const currentPos = useContext(contextPosition);
-
     const contextMenuRef = useRef<HTMLDivElement>(null);
     const expandMenuRef = useRef<HTMLUListElement>(null);
 
@@ -23,8 +21,10 @@ const ContextMenuRoot: React.FC<ContextMenuProps> = ({ children }) => {
         const handleContextMenu = (event: MouseEvent) => {
             event.preventDefault();
 
-            const { offsetX, offsetY } = event;
+            let { offsetX, offsetY } = event;
             const { innerWidth, innerHeight } = window;
+
+            console.log(innerHeight, innerWidth)
 
             const contextMenuWidth = contextMenuRef.current?.offsetWidth || 0;
             const contextMenuHeight = contextMenuRef.current?.offsetHeight || 0;
@@ -34,7 +34,7 @@ const ContextMenuRoot: React.FC<ContextMenuProps> = ({ children }) => {
             const x = offsetX > innerWidth - contextMenuWidth ? innerWidth - contextMenuWidth : offsetX;
             const y = offsetY > innerHeight - contextMenuHeight ? innerHeight - contextMenuHeight : offsetY;
 
-            if (offsetX > innerWidth - contextMenuWidth - expandMenuWidth) {
+            if (offsetX > (innerWidth - contextMenuWidth - expandMenuWidth)) {
 
                 expandMenuRef.current?.style.setProperty('left', '-20rem');
 
@@ -44,6 +44,10 @@ const ContextMenuRoot: React.FC<ContextMenuProps> = ({ children }) => {
                 expandMenuRef.current?.style.setProperty('right', '-20rem');
 
             }
+
+            offsetX = offsetX > contextMenuWidth ? innerWidth - contextMenuWidth : offsetX
+
+            offsetY = offsetY > contextMenuHeight ? innerHeight - contextMenuHeight : offsetY
 
             setPosition({ x, y });
             setIsVisible(true);
@@ -73,16 +77,27 @@ const ContextMenuRoot: React.FC<ContextMenuProps> = ({ children }) => {
         left: `${position.x}px`,
         visibility: isVisible ? 'visible' : 'hidden',
         pointerEvents: isVisible ? 'all' : 'none',
-        backgroundColor: '#1f1f1f',
-        listStyle: 'none'
+        backgroundColor: 'white',
+        listStyle: 'none',
+        border: 'solid 1px red',
+        zIndex: 10000,
     };
 
     return (
         <div ref={contextMenuRef} className="wrapper" style={menuStyles} aria-hidden="true">
             <div className="content" role='list'>
 
-               <contextSettings.Provider value={{x: position.x, y:position.y, isVisible:isVisible}}>
+               <contextSettings.Provider 
+                value={
+                    {
+                        x: position.x, 
+                        y: position.y, 
+                        isVisible: isVisible
+                    }}
+                >
+
                 {children}
+
                </contextSettings.Provider>
 
             </div>
