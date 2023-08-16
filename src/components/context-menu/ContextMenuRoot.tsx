@@ -14,6 +14,7 @@ const ContextMenuRoot: React.FC<ContextMenuProps> = ({ children }) => {
 
     const [isVisible, setIsVisible] = useState(false);
     const [position, setPosition] = useState({ x: 0, y: 0 });
+    const [side, setSide] = useState("");
 
 
     useEffect(() => {
@@ -36,12 +37,11 @@ const ContextMenuRoot: React.FC<ContextMenuProps> = ({ children }) => {
 
             if (offsetX > (innerWidth - contextMenuWidth - expandMenuWidth)) {
 
-                expandMenuRef.current?.style.setProperty('left', '-20rem');
+                setSide("left")
 
             } else {
 
-                expandMenuRef.current?.style.removeProperty('left');
-                expandMenuRef.current?.style.setProperty('right', '-20rem');
+                setSide("right")
 
             }
 
@@ -92,7 +92,8 @@ const ContextMenuRoot: React.FC<ContextMenuProps> = ({ children }) => {
                     {
                         x: position.x, 
                         y: position.y, 
-                        isVisible: isVisible
+                        isVisible: isVisible,
+                        side: side
                     }}
                 >
 

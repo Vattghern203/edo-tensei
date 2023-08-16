@@ -1,4 +1,4 @@
-import { ReactNode, CSSProperties, LiHTMLAttributes, useContext } from "react";
+import { ReactNode, LiHTMLAttributes, useContext, useRef } from "react";
 
 import { contextSettings } from "./menuContext"
 
@@ -47,8 +47,18 @@ const ExpandMenu = styled.ul`
 
 const ContextMenuExpand = ({ children, expandLabel, ...restProps} : ContextMenuExpandProps) => {
 
+  const expandMenuRef = useRef<HTMLUListElement>(null)
+
   const menuContext = useContext(contextSettings)
 
+  const setSide = () => {
+
+    if (menuContext.side == "left") {
+
+      expandMenuRef.current?.style.removeProperty("right")
+      expandMenuRef.current?.style.setProperty("left", '102%')
+    }
+  }
   
   return (
     <ExpandItem className="expand-item" {...restProps}>
@@ -71,7 +81,7 @@ const ContextMenuExpand = ({ children, expandLabel, ...restProps} : ContextMenuE
 
       </ExpandWrapper>
 
-      <ExpandMenu role="menu" style={{
+      <ExpandMenu ref={expandMenuRef} role="menu" style={{
         visibility: menuContext.isVisible ? "visible" : "hidden"
       }}>
 
