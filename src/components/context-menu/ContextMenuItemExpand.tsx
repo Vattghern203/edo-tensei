@@ -9,37 +9,49 @@ interface ContextMenuExpandProps extends LiHTMLAttributes<HTMLLIElement> {
   expandLabel: string;
 }
 
+const ExpandItem = styled.li`
+  cursor: pointer;
+  position: relative;
+
+  & ul {
+    display: none;
+  }
+
+  &:hover ul {
+    display: block;
+  }
+`
+
 const ExpandWrapper = styled.div`
   display: flex;
   width: 100%;
   background-color: wheat;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 
   & svg {
     fill: inherit;
     align-self: center;
-    width: 100%;
+    width: fit-content;
     height: 1em;
     padding: 0;
     margin: 0;
   }
+`
+const ExpandMenu = styled.ul`
+  position: absolute;
+  left: 105%;
+  top: 0;
 `
 
 const ContextMenuExpand = ({ children, expandLabel, ...restProps} : ContextMenuExpandProps) => {
 
   const menuContext = useContext(contextSettings)
 
-  const expandMenuStyle: CSSProperties = {
-
-    visibility: menuContext.isVisible ? "visible" : "hidden",
-    pointerEvents: menuContext.isVisible ? "all" : "none",
-    top: menuContext.x,
-    left: menuContext.y
-  };
   
   return (
-    <li className="expand-item" {...restProps}>
+    <ExpandItem className="expand-item" {...restProps}>
 
       <ExpandWrapper
         role="button"
@@ -59,13 +71,15 @@ const ContextMenuExpand = ({ children, expandLabel, ...restProps} : ContextMenuE
 
       </ExpandWrapper>
 
-      <ul style={expandMenuStyle} role="menu">
+      <ExpandMenu role="menu" style={{
+        visibility: menuContext.isVisible ? "visible" : "hidden"
+      }}>
 
         {children}
 
-      </ul>
+      </ExpandMenu>
 
-    </li>
+    </ExpandItem>
 
   );
   

@@ -8,7 +8,11 @@ interface IContextMenu {
     isVisible: boolean;
 }
 
-const ContextExpandItem = () => {
+interface ExpandItemProps {
+  labelText: string
+}
+
+const ContextExpandItem = ( { labelText }:ExpandItemProps ) => {
 
     const context:IContextMenu = useContext(contextSettings)
 
@@ -21,7 +25,7 @@ const ContextExpandItem = () => {
 
   return (
     <article style={ContextItemStyles} aria-hidden={!context.isVisible}>
-        <p>{context.isVisible}</p>
+        {labelText}
     </article>
   )
 }

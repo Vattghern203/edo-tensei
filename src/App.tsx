@@ -94,10 +94,17 @@ function App() {
         />
 
         <ContextMenu.Expand
-          isVisible={true}
           expandLabel="share"
         >
-          <ContextMenu.ExpandItem />
+          <ContextMenu.ExpandItem
+          
+            labelText="macarrao"
+          />
+
+        <ContextMenu.ExpandItem
+          
+          labelText="pao com ovo"
+        />
           
         </ContextMenu.Expand>
 
