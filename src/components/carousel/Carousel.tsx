@@ -1,4 +1,4 @@
-import { FC, useRef, useState, useEffect, CSSProperties } from "react";
+import { useRef, useState, useEffect, CSSProperties } from "react";
 
 interface ImageData {
   key?: number | string;
@@ -11,7 +11,7 @@ interface CarouselProps {
   showtime?: number;
 }
 
-const Carousel: FC<CarouselProps> = ({ imgArray, showtime = 2000 }) => {
+const Carousel = ({ imgArray, showtime = 2000 }:CarouselProps) => {
   const [currentImgIndex, setCurrentImgIndex] = useState<number>(0);
   const [progress, setProgress] = useState<number>(0); // Progress value between 0 and 100
   const imgRef = useRef<HTMLImageElement | null>(null);
