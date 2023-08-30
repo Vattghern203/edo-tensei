@@ -1,7 +1,5 @@
-import { ReactNode, LiHTMLAttributes, useContext, useRef } from "react";
-
-import { contextSettings } from "./menuContext"
-
+import React, { ReactNode, LiHTMLAttributes, useContext, useRef } from "react";
+import { contextSettings } from "./menuContext";
 import styled from "styled-components";
 
 interface ContextMenuExpandProps extends LiHTMLAttributes<HTMLLIElement> {
@@ -17,10 +15,11 @@ const ExpandItem = styled.li`
     display: none;
   }
 
-  &:hover ul {
+  &:hover ul,
+  ul:hover {
     display: block;
   }
-`
+`;
 
 const ExpandWrapper = styled.div`
   display: flex;
@@ -38,61 +37,56 @@ const ExpandWrapper = styled.div`
     padding: 0;
     margin: 0;
   }
-`
+`;
+
 const ExpandMenu = styled.ul`
   position: absolute;
   left: 105%;
   top: 0;
-`
+`;
 
-const ContextMenuExpand = ({ children, expandLabel, ...restProps} : ContextMenuExpandProps) => {
-
-  const expandMenuRef = useRef<HTMLUListElement>(null)
-
-  const menuContext = useContext(contextSettings)
+const ContextMenuExpand = ({
+  children,
+  expandLabel,
+  ...restProps
+}: ContextMenuExpandProps) => {
+  const expandMenuRef = useRef<HTMLUListElement>(null);
+  const menuContext = useContext(contextSettings);
 
   const setSide = () => {
-
-    if (menuContext.side == "left") {
-
-      expandMenuRef.current?.style.removeProperty("right")
-      expandMenuRef.current?.style.setProperty("left", '102%')
+    if (menuContext.side === "left") {
+      expandMenuRef.current?.style.removeProperty("left");
+      expandMenuRef.current?.style.setProperty("right", "102%");
+    } else {
+      expandMenuRef.current?.style.removeProperty("right");
+      expandMenuRef.current?.style.setProperty("left", "105%");
     }
-  }
-  
+  };
+
+  // Call the setSide function
+  setSide();
+
   return (
     <ExpandItem className="expand-item" {...restProps}>
-
       <ExpandWrapper
         role="button"
-        aria-expanded={menuContext.isVisible}
         aria-haspopup="true"
-        aria-label={expandLabel}
+        aria-expanded={menuContext.isVisible}
       >
-
-        <span>
-
-          {expandLabel}
-
-        </span>
-
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M530-481 332-679l43-43 241 241-241 241-43-43 198-198Z"/></svg>
-
-
+        <span aria-label={expandLabel}>{expandLabel}</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+          <path d="M530-481 332-679l43-43 241 241-241 241-43-43 198-198Z" />
+        </svg>
       </ExpandWrapper>
-
-      <ExpandMenu ref={expandMenuRef} role="menu" style={{
-        visibility: menuContext.isVisible ? "visible" : "hidden"
-      }}>
-
+      <ExpandMenu
+        ref={expandMenuRef}
+        role="menu"
+        aria-hidden={!menuContext.isVisible}
+      >
         {children}
-
       </ExpandMenu>
-
     </ExpandItem>
-
   );
-  
 };
 
 export default ContextMenuExpand;
