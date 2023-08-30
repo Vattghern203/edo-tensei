@@ -1,4 +1,4 @@
-import { Hero, ContextMenu, Header, Navigation, Footer, Form, Loader, Skeleton, ToggleSwitch, Carousel } from "./components"
+import { Hero, ContextMenu, Header, Navigation, Footer, Form, Loader, Skeleton, ToggleSwitch, Carousel, Accordion } from "./components"
 
 import './assets/styles/global.css'
 
@@ -208,6 +208,15 @@ function App() {
       />
 
       <Carousel imgArray={imgs} showtime={4000}/>
+
+      <Accordion.Root>
+        <Accordion.Question
+          questionText="um pontinho azul no céu"
+        />
+        <Accordion.Answer
+          answerText="sua mae"
+        />
+      </Accordion.Root>
 
     </div>
 
