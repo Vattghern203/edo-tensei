@@ -1,4 +1,4 @@
-import { useRef } from "react"
+import { SyntheticEvent, useRef } from "react"
 
 import styled from "styled-components"
 
@@ -14,7 +14,7 @@ const Dt = styled.dt`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: opacity .4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all .4s cubic-bezier(0.165, 0.84, 0.44, 1);
 
     &:hover {
         opacity: 70%;
@@ -22,17 +22,22 @@ const Dt = styled.dt`
     }
 
     
-    &.open ~ dd {
-        visibility: hidden;
+    &.open + dd {
+        visibility: visible;
+        height: 100%;
+        margin-top: 2vmin;
     }
 
     &.open::after {
         rotate: initial;
     }
 
-    dd {
+    & + dd {
         visibility: hidden;
-        height: 0;
+        height: 0%;
+        background-color: lightgray;
+        padding: 1vmin .8vmin;
+        transition: all .4s ease-in;
     }
 
     &::after {
@@ -44,6 +49,7 @@ const Dt = styled.dt`
         width: 2rem;
         height: 2rem;
         rotate: 45deg;
+        transition: all .4s cubic-bezier(0.19, 1, 0.22, 1);
     }
 
     &::after:active {
@@ -51,16 +57,16 @@ const Dt = styled.dt`
     }
 `
 
-const AccordionQuestion = ( {questionText}:AccordionQuestionProps ) => {
+const AccordionQuestion = ({ questionText }: AccordionQuestionProps) => {
 
-    const handleClick = ( event:MouseEvent ) => {
+    const handleClick = (event: MouseEvent | SyntheticEvent) => {
         const target = event.target as HTMLElement
 
         if (target instanceof HTMLElement) {
 
             target.classList.toggle('open')
 
-            console.log("clicked")
+            console.log(event)
         }
 
         else {
@@ -70,7 +76,7 @@ const AccordionQuestion = ( {questionText}:AccordionQuestionProps ) => {
 
     return (
 
-        <Dt onClick={handleClick}>
+        <Dt onClick={(e) => handleClick(e)}>
             {questionText}
         </Dt>
     )
