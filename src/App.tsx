@@ -210,12 +210,14 @@ function App() {
       <Carousel imgArray={imgs} showtime={4000}/>
 
       <Accordion.Root>
-        <Accordion.Question
-          questionText="um pontinho azul no céu"
-        />
-        <Accordion.Answer
-          answerText="sua mae"
-        />
+        <Accordion.Wrapper>
+          <Accordion.Question
+            questionText="um pontinho azul no céu"
+          />
+          <Accordion.Answer
+            answerText="sua mae"
+          />
+        </Accordion.Wrapper>
       </Accordion.Root>
 
     </div>

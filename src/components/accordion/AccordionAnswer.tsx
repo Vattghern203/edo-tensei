@@ -7,7 +7,10 @@ const AccordionAnswer = ( { answerText }:AccordionAnswerProps ) => {
 
     return (
 
-        <dd>
+        <dd
+            role="region"
+            aria-labelledby="accordion-question"
+        >
             {answerText}
         </dd>
     )

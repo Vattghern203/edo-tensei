@@ -1,4 +1,4 @@
-import { SyntheticEvent, useRef } from "react"
+import { SyntheticEvent, useState } from "react"
 
 import styled from "styled-components"
 
@@ -15,6 +15,7 @@ const Dt = styled.dt`
     justify-content: space-between;
     align-items: center;
     transition: all .4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow: hidden;
 
     &:hover {
         opacity: 70%;
@@ -25,7 +26,7 @@ const Dt = styled.dt`
     &.open + dd {
         visibility: visible;
         height: 100%;
-        margin-top: 2vmin;
+        margin-top: 1.4vmin;
     }
 
     &.open::after {
@@ -37,12 +38,12 @@ const Dt = styled.dt`
         height: 0%;
         background-color: lightgray;
         padding: 1vmin .8vmin;
-        transition: all .4s ease-in;
+        transition: height .2s ease-in, margin .4s ease;
     }
 
     &::after {
         content: "";
-        background-image: url("public/close.svg");
+        background-image: url("/close.svg");
         background-repeat: no-repeat;
         background-size: cover;
         display: block;
@@ -76,7 +77,12 @@ const AccordionQuestion = ({ questionText }: AccordionQuestionProps) => {
 
     return (
 
-        <Dt onClick={(e) => handleClick(e)}>
+        <Dt 
+            onClick={(e) => handleClick(e)}
+            aria-controls="accordion-content"
+            role="button"
+            
+        >
             {questionText}
         </Dt>
     )

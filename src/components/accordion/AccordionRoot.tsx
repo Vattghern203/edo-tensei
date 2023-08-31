@@ -8,15 +8,17 @@ interface AccordionRootProps {
 }
 
 const Dl = styled.dl`
-    width: 100%;
-    background-color: lightgray;
-    padding: 2rem 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `
 const AccordionRoot = ( { children }:AccordionRootProps ) => {
 
     return (
 
-        <dl>
+        <dl
+            role="group"
+        >
             {children}
         </dl>
     )
