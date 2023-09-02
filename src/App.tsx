@@ -202,9 +202,6 @@ function App() {
       </Skeleton.Root>
 
       <ToggleSwitch
-        buttonType="rounded"
-        onToggle={() => console.log('button')}
-        activeColor="#256"
       />
 
       <Carousel imgArray={imgs} showtime={4000}/>

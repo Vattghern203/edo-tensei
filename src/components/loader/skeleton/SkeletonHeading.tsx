@@ -14,7 +14,10 @@ const SkeletonHeading = ( { color, height }:SkeletonHeadingProps ) => {
 
     return (
 
-        <div className="skeleton__heading" style={SkeletonHeadingStyles}>
+        <div 
+            className="skeleton__heading" 
+            style={SkeletonHeadingStyles}
+        >
 
         </div>
     )

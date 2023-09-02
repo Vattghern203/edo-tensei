@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 interface AccordionQuestionProps {
 
-    questionText: string
+    questionText: string;
 }
 
 const Dt = styled.dt`
@@ -18,7 +18,6 @@ const Dt = styled.dt`
     overflow: hidden;
 
     &:hover {
-        opacity: 70%;
         cursor: pointer;
     }
 
@@ -27,6 +26,7 @@ const Dt = styled.dt`
         visibility: visible;
         height: 100%;
         margin-top: 1.4vmin;
+        opacity: 1;
     }
 
     &.open::after {
@@ -36,9 +36,10 @@ const Dt = styled.dt`
     & + dd {
         visibility: hidden;
         height: 0%;
+        opacity: 0;
         background-color: lightgray;
         padding: 1vmin .8vmin;
-        transition: height .2s ease-in, margin .4s ease;
+        transition: height .2s ease-in, margin .4s ease, opacity .6s ease-in;
     }
 
     &::after {
@@ -66,8 +67,6 @@ const AccordionQuestion = ({ questionText }: AccordionQuestionProps) => {
         if (target instanceof HTMLElement) {
 
             target.classList.toggle('open')
-
-            console.log(event)
         }
 
         else {
